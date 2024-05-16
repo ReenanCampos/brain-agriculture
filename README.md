@@ -73,7 +73,7 @@ Swagger - [http://localhost:3000/api](http://localhost:3000/api)
 
 # <img src="public/images/postman-icon.png" width="25" /> Postman
 
-Utilize o arquivo [BrainAgriculture.postman_colletion.json](https://github.com/ReenanCampos/brain-agriculture/blob/main/postman/BrainAgriculture.postman_colletion.json) para importar uma coleção especifica para executar testes no projeto via postman.
+Utilize o arquivo [BrainAgriculture.postman_colletion.json](https://github.com/ReenanCampos/brain-agriculture/blob/main/postman/BrainAgriculture.postman_collection.json) para importar uma coleção especifica para executar testes no projeto via postman.
 
 
 # 💻 Contribuintes
