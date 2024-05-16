@@ -10,13 +10,15 @@ import {
     ValidationPipe
 } from '@nestjs/common';
 
-import { CalculoAreaPipe } from 'src/shared/pipes/CalculoArea.pipe';
+import { CalculoAreaPipe } from '../shared/pipes/CalculoArea.pipe';
 
 import { ProdutorRuralService } from './produtor-rural.service';
 
 import { CreateProdutorRuralDto } from './dto/create-produtor-rural.dto';
 import { UpdateProdutorRuralDto } from './dto/update-produtor-rural.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('produtor-rural')
 @Controller('produtor-rural')
 export class ProdutorRuralController {
 

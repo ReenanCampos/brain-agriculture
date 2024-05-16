@@ -1,6 +1,6 @@
 import { PipeTransform, Injectable, ArgumentMetadata, HttpException } from '@nestjs/common';
-import { FazendaDto } from 'src/fazenda/dto/fazenda.dto';
-import { ProdutorDto } from 'src/produtor-rural/dto/produtor.dto';
+import { FazendaDto } from '../../fazenda/dto/fazenda.dto';
+import { ProdutorDto } from '../../produtor-rural/dto/produtor.dto';
 
 @Injectable()
 export class CalculoAreaPipe implements PipeTransform {

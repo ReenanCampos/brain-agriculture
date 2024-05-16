@@ -1,5 +1,6 @@
-import { Fazenda } from 'src/fazenda/entities/fazenda.entity';
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Fazenda } from '../../fazenda/entities/fazenda.entity'
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 @Entity()
 export class ProdutorRural {

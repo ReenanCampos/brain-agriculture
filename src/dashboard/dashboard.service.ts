@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ProdutorRural } from 'src/produtor-rural/entity/produtor-rural.entity';
-import { Fazenda } from 'src/fazenda/entities/fazenda.entity';
+import { ProdutorRural } from '../produtor-rural/entities/produtor-rural.entity';
+import { Fazenda } from '../fazenda/entities/fazenda.entity';
 import { Repository } from 'typeorm';
 import { DashboardView } from './view/dashboard.view';
 

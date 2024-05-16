@@ -2,7 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { FazendaService } from './fazenda.service';
 import { CreateFazendaDto } from './dto/create-fazenda.dto';
 import { UpdateFazendaDto } from './dto/update-fazenda.dto';
+import { ApiExcludeController, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('fazenda')
+@ApiExcludeController(true)
 @Controller('fazenda')
 export class FazendaController {
   constructor(private readonly fazendaService: FazendaService) {}

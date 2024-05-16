@@ -1,10 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProdutorRuralDto } from './dto/create-produtor-rural.dto';
-import { ProdutorRural } from './entity/produtor-rural.entity';
+import { ProdutorRural } from './entities/produtor-rural.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UpdateProdutorRuralDto } from './dto/update-produtor-rural.dto';
-import { Fazenda } from 'src/fazenda/entities/fazenda.entity';
+import { Fazenda } from './../fazenda/entities/fazenda.entity';
+import { isEmpty, isNotEmptyObject } from 'class-validator';
 
 @Injectable()
 export class ProdutorRuralService {
@@ -13,7 +14,10 @@ export class ProdutorRuralService {
         @InjectRepository(ProdutorRural) private readonly produtorRuralRepository: Repository<ProdutorRural>,
         @InjectRepository(Fazenda) private readonly fazendaRepository: Repository<Fazenda>) {}
 
-    create(createProdutorRuralDto: CreateProdutorRuralDto): Promise<ProdutorRural> {
+    public async create(createProdutorRuralDto: CreateProdutorRuralDto): Promise<ProdutorRural> {
+        if(!isNotEmptyObject(createProdutorRuralDto)){
+            throw new BadRequestException("Produtor não preenchido.");
+        }
         const produtor: ProdutorRural = new ProdutorRural();
         produtor.nome = createProdutorRuralDto.nome;
         produtor.documento = createProdutorRuralDto.documento;
@@ -29,10 +33,13 @@ export class ProdutorRuralService {
             fazenda.cultura = createProdutorRuralDto.fazenda.cultura;
             produtor.fazenda = fazenda;
         }
-        return this.produtorRuralRepository.save(produtor);
+        return await this.produtorRuralRepository.save(produtor);
     }
 
     async update(id: number, updateProdutorRuralDto: UpdateProdutorRuralDto): Promise<ProdutorRural> {
+        if(!isNotEmptyObject(updateProdutorRuralDto)){
+            throw new BadRequestException("Produtor não preenchido.");
+        }
         const produtor: ProdutorRural = new ProdutorRural();
         produtor.id = id;
         produtor.nome = updateProdutorRuralDto.nome;
@@ -42,6 +49,10 @@ export class ProdutorRuralService {
             relations: { fazenda: true },
             where: { id: id }
         })
+
+        if(!produtorDatabase){
+            throw new NotFoundException("Produtor não encontrado");
+        }
         
         if(!updateProdutorRuralDto.fazenda && produtorDatabase.fazenda?.id){
             produtor.fazenda = null;
