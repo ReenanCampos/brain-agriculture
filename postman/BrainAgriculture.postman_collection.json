@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "b4785da0-e701-493f-ab6b-1c9e98b98294",
+		"name": "BrainAgriculture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28017175"
+	},
+	"item": [
+		{
+			"name": "Create PR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"rere\",\r\n    \"documento\": \"123.123.123-12\",\r\n    \"fazenda\": {\r\n        \"nome\": \"Fazenda nova\",\r\n        \"cidade\": \"Curitiba\",\r\n        \"estado\": \"PR\",\r\n        \"areaTotal\": 50,\r\n        \"areaAgricultavel\": 40,\r\n        \"areaVegetacao\": 10,\r\n        \"cultura\": [\r\n            \"Algodão\", \"Soja\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/produtor-rural",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"produtor-rural"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update PR",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"rere alterado\",\r\n    \"documento\": \"321.321.321-32\",\r\n    \"fazenda\": {\r\n        \"nome\": \"Fazendinha\",\r\n        \"cidade\": \"São Paulo\",\r\n        \"estado\": \"SP\",\r\n        \"areaTotal\": 10,\r\n        \"areaAgricultavel\": 5,\r\n        \"areaVegetacao\": 5,\r\n        \"cultura\": [\r\n            \"Milho\",\"Soja\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/produtor-rural/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"produtor-rural",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete PR",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/produtor-rural/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"produtor-rural",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindOne PR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/produtor-rural/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"produtor-rural",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindAll PR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/produtor-rural",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"produtor-rural"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/dashboard",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dashboard"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
